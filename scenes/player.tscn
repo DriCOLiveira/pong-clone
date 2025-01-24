@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://mtxsjisfpowu"]
+
+[ext_resource type="Texture2D" uid="uid://de6x0c802kke0" path="res://assets/walls_pong.png" id="1_3888e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b4571"]
+radius = 20.0
+height = 91.85
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 5)
+texture = ExtResource("1_3888e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_b4571")

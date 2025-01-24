@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://csyh1dbgja7h3"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7h7xg"]
+[ext_resource type="PackedScene" uid="uid://mtxsjisfpowu" path="res://scenes/player.tscn" id="1_u78ei"]
+[ext_resource type="Script" path="res://scripts/player1.gd" id="2_oq6ri"]
+[ext_resource type="Script" path="res://scripts/player2.gd" id="3_ba46n"]
+[ext_resource type="PackedScene" uid="uid://beeqiu83igral" path="res://scenes/ball.tscn" id="5_lc527"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14kfr"]
+size = Vector2(20, 1000)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y8cn4"]
+normal = Vector2(0, 7.57)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_344ni"]
+normal = Vector2(0, -7.57)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_7h7xg")
+
+[node name="Player" parent="." instance=ExtResource("1_u78ei")]
+position = Vector2(73, 377)
+motion_mode = 1
+script = ExtResource("3_ba46n")
+
+[node name="Player2" parent="." instance=ExtResource("1_u78ei")]
+position = Vector2(953, 375)
+motion_mode = 1
+script = ExtResource("2_oq6ri")
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(0, 328)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("RectangleShape2D_14kfr")
+
+[node name="Goal2" type="Area2D" parent="."]
+position = Vector2(1036, 316)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal2"]
+shape = SubResource("RectangleShape2D_14kfr")
+
+[node name="Borders" type="StaticBody2D" parent="."]
+position = Vector2(512, 366)
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="Borders"]
+position = Vector2(10, -366)
+shape = SubResource("WorldBoundaryShape2D_y8cn4")
+
+[node name="Bottom" type="CollisionShape2D" parent="Borders"]
+position = Vector2(10, 350)
+shape = SubResource("WorldBoundaryShape2D_344ni")
+
+[node name="Ball" parent="." instance=ExtResource("5_lc527")]
+position = Vector2(513, 348)
