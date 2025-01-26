@@ -12,3 +12,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+
+
+func _on_goal_body_entered(body: Node2D) -> void:
+	$HUD.update_score1()
+	$Ball.reset_position()
+
+func _on_goal_2_body_entered(body: Node2D) -> void:
+	$HUD.update_score2()
+	$Ball.reset_position()

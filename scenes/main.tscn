@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://csyh1dbgja7h3"]
+[gd_scene load_steps=10 format=3 uid="uid://csyh1dbgja7h3"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7h7xg"]
 [ext_resource type="PackedScene" uid="uid://mtxsjisfpowu" path="res://scenes/player.tscn" id="1_u78ei"]
 [ext_resource type="Script" path="res://scripts/player1.gd" id="2_oq6ri"]
 [ext_resource type="Script" path="res://scripts/player2.gd" id="3_ba46n"]
 [ext_resource type="PackedScene" uid="uid://beeqiu83igral" path="res://scenes/ball.tscn" id="5_lc527"]
+[ext_resource type="PackedScene" uid="uid://y00to8nbhnfb" path="res://scenes/hud.tscn" id="6_h1bqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14kfr"]
 size = Vector2(20, 1000)
@@ -58,3 +59,8 @@ shape = SubResource("WorldBoundaryShape2D_344ni")
 
 [node name="Ball" parent="." instance=ExtResource("5_lc527")]
 position = Vector2(513, 348)
+
+[node name="HUD" parent="." instance=ExtResource("6_h1bqo")]
+
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="Goal2" to="." method="_on_goal_2_body_entered"]

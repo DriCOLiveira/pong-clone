@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://beeqiu83igral"]
+[gd_scene load_steps=5 format=3 uid="uid://beeqiu83igral"]
 
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_8jm0d"]
 [ext_resource type="Texture2D" uid="uid://svxjckr7xpmy" path="res://assets/ball_pong.png" id="1_k7mlt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_avhw3"]
@@ -15,6 +16,7 @@ collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_avhw3")
 linear_damp_mode = 1
 angular_damp_mode = 1
+script = ExtResource("1_8jm0d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, 2)
